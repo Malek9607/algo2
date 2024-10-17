@@ -1,0 +1,34 @@
+function insertionSort(arr) {
+    console.log("Bienvenue dans l'aventure du Tri par Insertion !");
+    console.log("Préparez-vous à organiser votre tableau comme une main de cartes triées !");
+
+    // Parcourir le tableau de l'index 1 jusqu'à la fin
+    for (let i = 1; i < arr.length; i++) {
+        let currentElement = arr[i];  // C'est la carte que nous devons insérer
+        let j = i - 1;
+        
+        console.log(`\nRound ${i}: La carte à insérer est ${currentElement}.`);
+        console.log("Nous allons chercher la place parfaite dans la portion triée du tableau...");
+
+        // Déplacer les cartes vers la droite pour faire de la place
+        while (j >= 0 && arr[j] > currentElement) {
+            console.log(`L'élément ${arr[j]} est plus grand que ${currentElement}, donc nous le décalons.`);
+            arr[j + 1] = arr[j];  // Décale l'élément vers la droite
+            j--;
+        }
+
+        // Insérer l'élément à sa position correcte
+        arr[j + 1] = currentElement;
+        console.log(`La carte ${currentElement} trouve enfin sa place à l'index ${j + 1}.`);
+        console.log("État actuel du tableau: ", arr);
+    }
+
+    console.log("\nFélicitations ! Le tableau est maintenant trié : ", arr);
+    return arr;
+}
+
+// Exemple d'utilisation
+let arr = [8, 3, 7, 1, 9, 4];
+console.log("Tableau original:", arr);
+console.log("Début de l'aventure...\n");
+insertionSort(arr);
